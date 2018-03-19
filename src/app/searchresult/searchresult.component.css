@@ -1,0 +1,128 @@
+.row {
+    margin: 1% 12.0% 1% 12.0%;
+    background-color: #ffffff;
+}
+
+.row:before,
+.row:after {
+    content:"";
+    display:table;
+}
+
+.row:after {
+    clear:both;
+}
+
+.col {
+	display: block;
+	float: left;
+}
+
+
+.col:first-child { 
+	margin-left: 0; 
+}
+
+
+@media only screen and (max-width: 700px) {
+	.row {
+        margin: 0;
+	}
+}
+
+.span-1-of-4 {
+	width: 55%;
+}
+
+.span-2-of-4 {
+	width: 14%;
+}
+
+.span-3-of-4 {
+	width: 14%;
+}
+
+.span-4-of-4 {
+	width: 14%;
+}
+
+@media only screen and (max-width: 700px) {
+	.span-1-of-4 {
+		width: 100%; 
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.span-2-of-4 {
+		width: 32.3%; 
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.span-3-of-4 {
+		width: 32.3%; 
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.span-4-of-4 {
+		width: 32.3%; 
+	}
+}
+
+.horizontal-line-box {
+    margin: 1% 12.0% 1% 12.0%;
+}
+
+.horizontal-line {
+    width: 100%; 
+    background: #fff
+}
+
+.text {
+    text-align: center;
+}
+
+.border-right {
+	border-left: 1px solid #fff;
+}
+
+.text-position {
+	padding-left: 2%;
+}
+
+.text-position-center {
+	text-align: center;
+}
+
+.text-position-color {
+	color: #0e4275;
+}
+
+.vertical-divider-first {
+	position: relative;
+	border-left: 1px solid #989898;
+}
+
+.vertical-divider {
+	position: relative;
+	border-left: 1px solid #989898;
+}
+
+.horizontal-line-divider {
+	width: 0%;
+}
+
+@media only screen and (max-width: 700px) {
+	.vertical-divider-first {
+		position: relative;
+		border-left: 0px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.horizontal-line-divider {
+		width: 100%; 
+    	background: #989898;
+	}
+}

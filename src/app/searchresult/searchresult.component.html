@@ -1,0 +1,39 @@
+<header-component></header-component>
+<ng-progress></ng-progress>
+<div *ngIf="repositories?.length !== 0">
+    <div class="horizontal-line-box">
+        <hr class="horizontal-line">
+    </div>
+    <div class="horizontal-line-box">
+        <p class="text">SEARCH Results:</p>
+    </div>
+    <div class="row" *ngFor="let repository of repositories | paginate: { itemsPerPage: 5, currentPage: page }">
+        <div class="col span-1-of-4">
+            <h4 class="text-position text-position-color">{{ repository.owner.login }} / {{ repository.name }}</h4>
+            <p class="text-position">{{ repository.description }}</p>
+            <p class="text-position">{{ repository.owner.url }}</p>
+        </div>
+        <hr class="horizontal-line-divider">
+        <div class="col span-2-of-4 vertical-divider-first">
+            <h4 class="text-position-center">STARS</h4>
+            <p class="text-position-center">{{ repository.stargazers_count }}</p>
+        </div>
+        <div class="col span-3-of-4 vertical-divider">
+            <h4 class="text-position-center">LICENSE</h4>
+            <p class="text-position-center" *ngIf="repository.license?.name !== null">{{ repository.license?.name }}</p>
+            <p class="text-position-center" *ngIf="repository.license?.name === null">No license info</p>
+        </div>
+        <div class="col span-4-of-4 vertical-divider">
+            <h4 class="text-position-center">FORKED</h4>
+            <p class="text-position-center">{{ repository.fork }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+<div class="row">
+    <div *ngIf="repositories?.length === 0">
+        <p>No Results to display</p>
+    </div>
+</div>        

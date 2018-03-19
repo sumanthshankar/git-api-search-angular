@@ -1,0 +1,48 @@
+<div class="header">
+    <img src="../../assets/images/jopwell.png" class="image" alt="Logo" >
+</div>
+<form [formGroup]="searchForm" (ngSubmit)="doGetList()">
+    <div class="row">
+        <div class="col span-1-of-1">
+            <label for="searchKeyword">Text</label>
+            <input type="text" id="searchKeyword" class="input" name="searchKeyword" formControlName="searchKeyword">
+            <span *ngIf="!searchForm.get('searchKeyword').valid && searchForm.get('searchKeyword').touched">You should enter a Keyword to search</span>
+        </div>
+        <div class="col span-1-of-1">
+            <label for="stars">Stars</label>
+            <input type="text" id="stars" class="input" name="stars" formControlName="stars">
+            <span *ngIf="!searchForm.get('stars').valid && searchForm.get('stars').touched">You should enter stars</span>
+            <span *ngIf="searchForm.hasError('pattern')">Number is Invalid! Enter a positive whole number</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col span-1-of-1 space">
+            <label for="license">License</label>
+            <br>
+            <select class="input" id="license" formControlName="license">
+                <option value="mit">MIT</option>
+                <option value="isc">ISC</option>
+                <option value="apache-2.0">Apache</option>
+                <option value="gpl">GPL</option>
+            </select>
+        </div>
+        <div class="col span-1-of-1">
+            <br>
+            <div class="checbox-holder">
+                <input type="checkbox" name="true" formControlName="fork">
+                <label>Include Forked</label>
+            </div>    
+        </div>
+    </div>
+    <div class="row">
+        <div class="buttonHolder">
+            <button type="button" type="submit" class="btn" [disabled]="!searchForm.valid">SEARCH</button>
+        </div>
+    </div>
+</form>
+
+				
+
+				
+
+			
