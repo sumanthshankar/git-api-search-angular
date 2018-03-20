@@ -21,7 +21,7 @@ export class GitHubApiService {
                         .catch(this.handleError);
     }
 
-    handleError (error: Response) {
+    handleError(error: Response) {
         console.error(error);
         return Observable.throw(error);
     }

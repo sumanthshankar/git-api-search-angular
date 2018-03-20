@@ -23,13 +23,6 @@
 	margin-left: 0; 
 }
 
-
-@media only screen and (max-width: 700px) {
-	.row {
-        margin: 0;
-	}
-}
-
 .span-1-of-4 {
 	width: 55%;
 }
@@ -44,6 +37,12 @@
 
 .span-4-of-4 {
 	width: 14%;
+}
+
+@media only screen and (max-width: 700px) {
+	.row {
+        margin: 0;
+	}
 }
 
 @media only screen and (max-width: 700px) {

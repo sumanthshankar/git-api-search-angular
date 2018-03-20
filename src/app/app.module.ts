@@ -21,8 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SearchResultComponent
   ],
   imports: [
-    HttpModule,
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgxPaginationModule,

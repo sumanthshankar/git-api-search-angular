@@ -20,8 +20,8 @@
         </div>
         <div class="col span-3-of-4 vertical-divider">
             <h4 class="text-position-center">LICENSE</h4>
-            <p class="text-position-center" *ngIf="repository.license?.name !== null">{{ repository.license?.name }}</p>
-            <p class="text-position-center" *ngIf="repository.license?.name === null">No license info</p>
+            <p class="text-position-center" *ngIf="repository.license?.name !== null">{{ repository.license.name }}</p>
+            <p class="text-position-center" *ngIf="repository.license?.name === null">No info</p>
         </div>
         <div class="col span-4-of-4 vertical-divider">
             <h4 class="text-position-center">FORKED</h4>

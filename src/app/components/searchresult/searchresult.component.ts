@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params, Event, NavigationEnd } from '@angular/router';
 import { NgProgress } from 'ngx-progressbar';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +12,7 @@ import { Repository } from '../../models/repository';
   styleUrls: ['./searchresult.component.css']
 })
 
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent {
 
   repositories: Repository[];
   q: string;
@@ -33,13 +33,6 @@ export class SearchResultComponent implements OnInit {
         this.ngProgress.done();
       }
     });        
-  }
-
-  ngOnInit() {
-    this.doGetParameters();
-    this.ngProgress.start();
-    this.doGetRepositories();
-    this.ngProgress.done();
   }
 
   doGetParameters() {
