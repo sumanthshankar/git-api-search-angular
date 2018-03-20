@@ -20,21 +20,9 @@ col:first-child {
     margin-left: 0; 
 }
 
-@media only screen and (max-width: 480px) {
-	.row { 
-        margin: 0;
-    }
-}
-
 .span-1-of-1 {
 	width: 47%;
 	margin-right: 3%;
-}
-
-@media only screen and (max-width: 480px) {
-	.span-1-of-1 {
-		width: 100%; 
-	}
 }
 
 
@@ -80,6 +68,12 @@ input.ng-invalid.ng-touched {
 }
 
 @media only screen and (max-width: 480px) {
+    .row { 
+        margin: 0;
+    }
+    .span-1-of-1 {
+		width: 100%; 
+	}
 	.checbox-holder {
         text-align: center;
         padding-bottom: 15px;

@@ -5,15 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgProgressModule } from 'ngx-progressbar';
 
-
 import { AppRoutingModule } from './app-routing.module';
-
-import { GitHubApiService } from './githubapi.service';
+import { GitHubApiService } from './services/githubapi.service';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SearchResultComponent } from './searchresult/searchresult.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchResultComponent } from './components/searchresult/searchresult.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [

@@ -1,29 +1,20 @@
 export interface Repository {
     name: string;
-
-    full_name: String;
-
+    full_name: string;
     owner: Owner;
-
-    description: String;
-
+    description: string;
     repositoryStars: number;
-
-    repositoryForkedOrNot: String;
-
+    repositoryForkedOrNot: string;
     license: License;
-    
     fork: boolean;
-
-    stargazers_count: String;
-
+    stargazers_count: string;
 }
 
 export interface Owner {
     login: number;
-    url: String;
+    url: string;
 }
 
 export interface License {
-    name: String
+    name: string
 }

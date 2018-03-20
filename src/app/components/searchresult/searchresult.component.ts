@@ -3,8 +3,8 @@ import { Router, ActivatedRoute, Params, Event, NavigationEnd } from '@angular/r
 import { NgProgress } from 'ngx-progressbar';
 import { Observable } from 'rxjs/Observable';
 
-import { GitHubApiService } from '../githubapi.service';
-import { Repository } from '../model/repository';
+import { GitHubApiService } from '../../services/githubapi.service';
+import { Repository } from '../../models/repository';
 
 @Component({
   selector: 'searchresult-component',
@@ -14,17 +14,16 @@ import { Repository } from '../model/repository';
 
 export class SearchResultComponent implements OnInit {
 
-  public repositories: Repository[];
+  repositories: Repository[];
+  q: string;
+  stars: number;
+  license: string;
+  fork: boolean;
 
-  public q: String;
-  public stars: number;
-  public license: String;
-  public fork: boolean;
-
-  constructor(public githubApiService: GitHubApiService, 
-              public router: Router, 
-              public activatedRoute: ActivatedRoute,
-              public ngProgress: NgProgress) { 
+  constructor(private githubApiService: GitHubApiService, 
+              private router: Router, 
+              private activatedRoute: ActivatedRoute,
+              private ngProgress: NgProgress) { 
 
     router.events.subscribe((event) => {
       if(event instanceof NavigationEnd) {
@@ -58,9 +57,8 @@ export class SearchResultComponent implements OnInit {
 
   doGetRepositories() {
     this.githubApiService.getRepositories(this.q, this.stars, this.license, this.fork)
-                         .subscribe(repositories => {
-                           this.repositories = repositories;
-                         });                  
+                         .subscribe((repositories) => this.repositories = repositories,
+                                    (error) => console.error(error));                  
   }
 
 }

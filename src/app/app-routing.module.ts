@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeaderComponent } from './header/header.component';
-import { SearchResultComponent } from './searchresult/searchresult.component';
-
+import { HeaderComponent } from './components/header/header.component';
+import { SearchResultComponent } from './components/searchresult/searchresult.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'search', pathMatch: 'full' },

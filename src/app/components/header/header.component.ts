@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-import { GitHubApiService } from '../githubapi.service';
-import { Repository } from '../model/repository';
+import { GitHubApiService } from '../../services/githubapi.service';
+import { Repository } from '../../models/repository';
 
 
 @Component({
