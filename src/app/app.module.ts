@@ -7,6 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgProgressModule } from 'ngx-progressbar';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { GitHubApiService } from './services/githubapi.service';
 
 import { AppComponent } from './app.component';

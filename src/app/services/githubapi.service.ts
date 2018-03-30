@@ -27,16 +27,13 @@ export class GitHubApiService {
                                );
     }
 
-    private handleErrorOne(error: HttpErrorResponse) {
-        if (error.error instanceof ErrorEvent) {
-          // A client-side or network error occurred. Handle it accordingly.
-          console.error('An error occurred:', error.error.message);
+    handleErrorOne(error: HttpErrorResponse): Observable<Repository[]> {
+        if (error instanceof ErrorEvent) {
+            console.error('An error occurred: ', error.message);
         } else {
-          // The backend returned an unsuccessful response code.
-          // The response body may contain clues as to what went wrong,
-          console.error(
-            `Backend returned code ${error.status}, ` +
-            `body was: ${error.error}`);
+            console.error('Error Status: ' + error.status);
+            console.error('Error Message: ' + error.statusText);
+            console.error('Error Body: ' + error);
         }
         return new ErrorObservable('Something bad happened! Please try again later!');
     };

@@ -58,7 +58,7 @@ export class SearchResultComponent implements OnDestroy {
   doGetRepositoriesOne() {
     this.githubApiServiceSubscription = 
     this.githubApiService.getRepositoriesOne(this.q, this.stars, this.license, this.fork)
-                         .subscribe((repositories) => this.repositories = repositories['items'],
+                         .subscribe((response) => this.repositories = response['items'],
                                     (errorMessage) => this.errorMessage = errorMessage);                 
   }
 
