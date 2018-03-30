@@ -7,7 +7,7 @@
     <div class="horizontal-line-box">
         <p class="text">SEARCH Results:</p>
     </div>
-    <div class="row" *ngFor="let repository of repositories | paginate: { itemsPerPage: 5, currentPage: page }">
+    <div class="row" *ngFor="let repository of repositories | paginate: { itemsPerPage: 4, currentPage: page }">
         <div class="col span-1-of-4">
             <h4 class="text-position text-position-color">{{ repository.owner.login }} / {{ repository.name }}</h4>
             <p class="text-position">{{ repository.description }}</p>
@@ -20,8 +20,8 @@
         </div>
         <div class="col span-3-of-4 vertical-divider">
             <h4 class="text-position-center">LICENSE</h4>
-            <p class="text-position-center" *ngIf="repository.license?.name !== null">{{ repository.license.name }}</p>
-            <p class="text-position-center" *ngIf="repository.license?.name === null">No info</p>
+            <p class="text-position-center" *ngIf="repository.license !== null">{{ repository.license.name }}</p>
+            <p class="text-position-center" *ngIf="repository.license === null">No info</p>
         </div>
         <div class="col span-4-of-4 vertical-divider">
             <h4 class="text-position-center">FORKED</h4>

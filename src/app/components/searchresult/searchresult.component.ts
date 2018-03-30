@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute, Params, Event, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, ActivatedRoute, Params, Event, NavigationStart, NavigationEnd } from '@angular/router';
 import { NgProgress } from 'ngx-progressbar';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -34,7 +34,7 @@ export class SearchResultComponent implements OnDestroy {
       }
       if(event instanceof NavigationEnd) {
         this.doGetParameters();
-        this.doGetRepositories();
+        this.doGetRepositoriesOne();
         this.ngProgress.done();
       }
     });        
@@ -55,11 +55,18 @@ export class SearchResultComponent implements OnDestroy {
                                     });
   }
 
-  doGetRepositories() {
+  doGetRepositoriesOne() {
     this.githubApiServiceSubscription = 
-    this.githubApiService.getRepositories(this.q, this.stars, this.license, this.fork)
+    this.githubApiService.getRepositoriesOne(this.q, this.stars, this.license, this.fork)
+                         .subscribe((repositories) => this.repositories = repositories['items'],
+                                    (errorMessage) => this.errorMessage = errorMessage);                 
+  }
+
+  doGetRepositoriesTwo() {
+    this.githubApiServiceSubscription = 
+    this.githubApiService.getRepositoriesTwo(this.q, this.stars, this.license, this.fork)
                          .subscribe((repositories) => this.repositories = repositories,
-                                    (error) => this.errorMessage = error);                  
+                                    (errorMessage) => this.errorMessage = errorMessage);                  
   }
 
   ngOnDestroy() {
