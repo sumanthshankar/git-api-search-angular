@@ -28,7 +28,7 @@ export class GitHubApiService {
     }
 
     handleErrorOne(error: HttpErrorResponse): Observable<Repository[]> {
-        if (error instanceof ErrorEvent) {
+        if (error.error instanceof ErrorEvent) {
             console.error('An error occurred: ', error.message);
         } else {
             console.error('Error Status: ' + error.status);

@@ -16,12 +16,13 @@ export class SearchResultComponent implements OnDestroy {
 
   private githubApiServiceSubscription: Subscription;
   private parametersSubscription: Subscription;
-  private repositories: Repository[] = null;
+  private repositories: Repository[];
   private q: string;
   private stars: number;
   private license: string;
   private fork: boolean;
   private errorMessage: string = null;
+  private repositoriesArrayLength: number = 0;
 
   constructor(private githubApiService: GitHubApiService, 
               private router: Router, 
@@ -58,14 +59,20 @@ export class SearchResultComponent implements OnDestroy {
   doGetRepositoriesOne() {
     this.githubApiServiceSubscription = 
     this.githubApiService.getRepositoriesOne(this.q, this.stars, this.license, this.fork)
-                         .subscribe((response) => this.repositories = response['items'],
+                         .subscribe((response) => {
+                                                    this.repositoriesArrayLength = response['items'].length;
+                                                    this.repositories = response['items'];
+                                                  },
                                     (errorMessage) => this.errorMessage = errorMessage);                 
   }
 
   doGetRepositoriesTwo() {
     this.githubApiServiceSubscription = 
     this.githubApiService.getRepositoriesTwo(this.q, this.stars, this.license, this.fork)
-                         .subscribe((repositories) => this.repositories = repositories,
+                         .subscribe((repositories) => {
+                                                        this.repositoriesArrayLength = repositories.length;
+                                                        this.repositories = repositories;
+                                                      },
                                     (errorMessage) => this.errorMessage = errorMessage);                  
   }
 

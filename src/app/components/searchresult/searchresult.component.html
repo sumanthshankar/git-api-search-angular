@@ -1,6 +1,6 @@
 <header-component></header-component>
 <ng-progress></ng-progress>
-<div *ngIf="repositories !== null">
+<div *ngIf="repositoriesArrayLength !== 0">
     <div class="horizontal-line-box">
         <hr class="horizontal-line">
     </div>
@@ -33,7 +33,7 @@
     </div>
 </div>
 <div class="row">
-    <div *ngIf="repositories === null && errorMessage === null">
+    <div *ngIf="repositoriesArrayLength === 0 && errorMessage === null">
         <p>No Results to display</p>
     </div>
 </div>
