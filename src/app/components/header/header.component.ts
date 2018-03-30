@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-import { GitHubApiService } from '../../services/githubapi.service';
 import { Repository } from '../../models/repository';
 
 
@@ -14,15 +13,18 @@ import { Repository } from '../../models/repository';
 
 export class HeaderComponent implements OnInit {
 
-  public repositories: Repository[] = [];
+  private repositories: Repository[] = [];
+  private searchForm: FormGroup;
+  private imagePath: String;
+  private numberPattern = "^[0-9>..=]+$";
 
-  searchForm: FormGroup;
-  imagePath: String;
-  numberPattern = "^[0-9>..=]+$";
-
-  constructor(public githubApiService: GitHubApiService, public router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.initilizeSearchForm();
+  }
+
+  initilizeSearchForm() {
     this.searchForm = new FormGroup({
       'searchKeyword': new FormControl('', Validators.required),
       'stars': new FormControl('', [Validators.required, Validators.pattern(this.numberPattern)]),
